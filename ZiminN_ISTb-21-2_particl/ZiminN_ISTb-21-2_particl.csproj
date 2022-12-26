@@ -55,10 +55,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyParticle\DieZone.cs" />
     <Compile Include="MyParticle\GravityPoint.cs" />
     <Compile Include="MyParticle\IImpactPoint.cs" />
     <Compile Include="MyParticle\Particle.cs" />
     <Compile Include="MyEmitter\TopEmitter.cs" />
+    <Compile Include="MyParticle\RepaintZone.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

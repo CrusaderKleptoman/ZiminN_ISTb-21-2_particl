@@ -9,6 +9,8 @@ namespace ZiminN_ISTb_21_2_particl
 {
     internal class Particle
     {
+        public Color FromColor;
+        public Color ToColor;
         public float Life;
         public int Radius;
         public float X;
@@ -43,8 +45,6 @@ namespace ZiminN_ISTb_21_2_particl
 
         public class ParticleColorful : Particle
         {
-            public Color FromColor;
-            public Color ToColor;
 
             public static Color MixColor(Color color1, Color color2, float koef)
             {

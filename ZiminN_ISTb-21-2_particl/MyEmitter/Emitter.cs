@@ -44,6 +44,8 @@ namespace ZiminN_ISTb_21_2_particl
                     if (particleToCreate > 0)
                     {
                         particleToCreate -= 1;
+                        particle.FromColor = ColorFrom;
+                        particle.ToColor = ColorTo;
                         ResetParticle(particle);
                     }
                     
@@ -74,7 +76,9 @@ namespace ZiminN_ISTb_21_2_particl
 
         public virtual void ResetParticle(Particle particle)
         {
-            particle.Life = 20 + Particle.random.Next(LifeMin, LifeMax);
+            particle.FromColor = ColorFrom;
+            particle.ToColor = ColorTo;
+            particle.Life = Particle.random.Next(LifeMin, LifeMax);
             particle.X = X;
             particle.Y = Y;
 
@@ -85,6 +89,7 @@ namespace ZiminN_ISTb_21_2_particl
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
             particle.Radius = 2 + Particle.random.Next(RadiusMin, RadiusMax);
+
         }
 
         public virtual void Render(Graphics g)
@@ -98,6 +103,7 @@ namespace ZiminN_ISTb_21_2_particl
             {
                 point.Render(g);
             }
+
         }
 
         public virtual Particle CreateParticle()

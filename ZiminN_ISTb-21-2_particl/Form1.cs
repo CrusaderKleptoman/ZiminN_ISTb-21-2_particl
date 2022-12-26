@@ -16,6 +16,9 @@ namespace ZiminN_ISTb_21_2_particl
     public partial class Form1 : Form
     {
         List<Emitter> emitters = new List<Emitter>();
+        List<RepaintZone> repaintZones = new List<RepaintZone>();
+        RepaintZone repaintZone;
+        DieZone dieZone;
         Emitter emitter;
         CircleEmitter circleEmitter;
         GravityPoint point1;
@@ -25,7 +28,7 @@ namespace ZiminN_ISTb_21_2_particl
         {
             InitializeComponent();
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            
+
             this.emitter = new Emitter
             {
                 Direction = 0,
@@ -56,6 +59,22 @@ namespace ZiminN_ISTb_21_2_particl
             emitters.Add(this.emitter);
             emitters.Add(this.circleEmitter);
 
+            this.repaintZone = new RepaintZone
+            {
+                color = Color.Gold,
+                Radius = 100,
+                X = pictureBox1.Width / 2 + pictureBox1.Width / 4 + 50,
+                Y = pictureBox1.Height / 2 + pictureBox1.Height / 4
+            };
+
+            this.dieZone = new DieZone
+            {
+                Color = Color.Red,
+                Radius = 50,
+                X = pictureBox1.Width / 2,
+                Y = pictureBox1.Height / 2 + pictureBox1.Height / 4
+            };
+
             point1 = new GravityPoint
             {
                 X = pictureBox1.Width / 2 + 100,
@@ -72,6 +91,8 @@ namespace ZiminN_ISTb_21_2_particl
             {
                 emitter.impactPoints.Add(point1);
                 emitter.impactPoints.Add(point2);
+                emitter.impactPoints.Add(repaintZone);
+                emitter.impactPoints.Add(dieZone);
             }
 
         }
@@ -85,7 +106,7 @@ namespace ZiminN_ISTb_21_2_particl
         {
             using (var g = Graphics.FromImage(pictureBox1.Image))
             {
-                g.Clear(Color.Black);
+                g.Clear(Color.White);
             }
             foreach (var emitter in emitters)
             {
@@ -95,6 +116,7 @@ namespace ZiminN_ISTb_21_2_particl
                     emitter.Render(g);
                 }
             }
+            
             labelParticleAmount.Text = $"Количество частиц: {particleAmount()}";
             pictureBox1.Invalidate();
 
@@ -173,6 +195,21 @@ namespace ZiminN_ISTb_21_2_particl
             foreach (var emitter in emitters)
             {
                 emitter.ParticlePerTick = trackBarTic.Value;
+            }
+        }
+
+        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        {
+            dieZone = new DieZone
+            {
+                Color = Color.Red,
+                Radius = 50,
+                X = e.X,
+                Y = e.Y
+            };
+            foreach (var emitter in emitters)
+            {
+                emitter.impactPoints.Add(dieZone);
             }
         }
     }

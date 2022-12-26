@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static ZiminN_ISTb_21_2_particl.Particle;
 
 namespace ZiminN_ISTb_21_2_particl
 {
