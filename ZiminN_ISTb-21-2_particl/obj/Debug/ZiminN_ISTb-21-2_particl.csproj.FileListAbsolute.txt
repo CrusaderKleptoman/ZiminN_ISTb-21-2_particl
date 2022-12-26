@@ -1,0 +1,11 @@
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\bin\Debug\ZiminN_ISTb-21-2_particl.exe.config
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\bin\Debug\ZiminN_ISTb-21-2_particl.exe
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\bin\Debug\ZiminN_ISTb-21-2_particl.pdb
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb-21-2_particl.csproj.AssemblyReference.cache
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb-21-2_particl.csproj.SuggestedBindingRedirects.cache
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb_21_2_particl.Form1.resources
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb_21_2_particl.Properties.Resources.resources
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb-21-2_particl.csproj.GenerateResource.cache
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb-21-2_particl.csproj.CoreCompileInputs.cache
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb-21-2_particl.exe
+C:\Users\nik_z\source\repos\ZiminN_ISTb-21-2_particl\ZiminN_ISTb-21-2_particl\obj\Debug\ZiminN_ISTb-21-2_particl.pdb
