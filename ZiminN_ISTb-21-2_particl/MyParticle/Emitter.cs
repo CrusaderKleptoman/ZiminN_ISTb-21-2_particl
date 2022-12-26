@@ -17,15 +17,36 @@ namespace ZiminN_ISTb_21_2_particl
         public int MousePositionY;
         public float GravitationX = 0;
         public float GravitationY = 1;
+        public int ParticlesCount = 500;
+        public int X;
+        public int Y;
+        public int Direction = 0;
+        public int Spreading = 360;
+        public int SpeedMin = 1;
+        public int SpeedMax = 10;
+        public int RadiusMin = 2;
+        public int RadiusMax = 10;
+        public int LifeMin = 20;
+        public int LifeMax = 100;
+        public int ParticlePerTick = 5;
+
+        public Color ColorFrom = Color.SteelBlue;
+        public Color ColorTo = Color.FromArgb(0, Color.Red);
+           
         public void UpdateState()
         {
-            
+            int particleToCreate = ParticlePerTick;
+
             foreach (var particle in particles)
             {
                 particle.Life--;
                 if (particle.Life <= 0)
                 {
-                    ResetParticle(particle);
+                    if (particleToCreate > 0)
+                    {
+                        particleToCreate -= 1;
+                        ResetParticle(particle);
+                    }
                 }
                 else
                 {
@@ -34,7 +55,6 @@ namespace ZiminN_ISTb_21_2_particl
                         point.ImpactParticle(particle);
                     }
                     
-
                     particle.SpeedX += GravitationX;
                     particle.SpeedY += GravitationY;
                     particle.X += particle.SpeedX;
@@ -42,34 +62,28 @@ namespace ZiminN_ISTb_21_2_particl
                 }
             }
 
-            for (int i = 0; i < 10; i++)
+            while(particleToCreate >= 1)
             {
-                if (particles.Count < 500)
-                {
-                    var particle = new ParticleColorful();
-                    particle.FromColor = Color.SteelBlue;
-                    particle.ToColor = Color.FromArgb(0, Color.PaleVioletRed);
-                    ResetParticle(particle);
-                    particles.Add(particle);
-
-                }
-                else { break; }
+                particleToCreate -= 1;
+                var particle = CreateParticle();
+                ResetParticle(particle);
+                particles.Add(particle);
             }
         }
 
         public virtual void ResetParticle(Particle particle)
         {
-            particle.Life = 20 + Particle.random.Next(100);
-            particle.X = MousePositionX;
-            particle.Y = MousePositionY;
+            particle.Life = 20 + Particle.random.Next(LifeMin, LifeMax);
+            particle.X = X;
+            particle.Y = Y;
 
-            var direction = (double)Particle.random.Next(360);
-            var speed = 1 + Particle.random.Next(10);
+            var direction = Direction + (double)Particle.random.Next(Spreading) - Spreading/2;
+            var speed = 1 + Particle.random.Next(SpeedMin, SpeedMax);
 
             particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
             particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
 
-            particle.Radius = 2 + Particle.random.Next(10);
+            particle.Radius = 2 + Particle.random.Next(RadiusMin, RadiusMax);
         }
 
         public void Render(Graphics g)
@@ -83,6 +97,14 @@ namespace ZiminN_ISTb_21_2_particl
             {
                 point.Render(g);
             }
+        }
+
+        public virtual Particle CreateParticle()
+        {
+            var particle = new ParticleColorful();
+            particle.FromColor = ColorFrom;
+            particle.ToColor = ColorTo;
+            return particle;
         }
     }
 }

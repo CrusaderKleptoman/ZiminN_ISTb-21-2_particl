@@ -17,6 +17,7 @@ namespace ZiminN_ISTb_21_2_particl
         public float SpeedY;
         public static Random random = new Random();
 
+
         public Particle()
         {
             var direction = (double)random.Next(360);
@@ -58,6 +59,7 @@ namespace ZiminN_ISTb_21_2_particl
             public override void Draw(Graphics g)
             {
                 float koef = Math.Min(1f, Life / 100);
+                koef = Math.Max(0, koef);
                 var color = MixColor(ToColor, FromColor, koef);
 
                 var brush = new SolidBrush(color);
