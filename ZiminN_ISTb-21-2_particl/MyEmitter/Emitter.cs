@@ -33,13 +33,12 @@ namespace ZiminN_ISTb_21_2_particl
         public Color ColorFrom = Color.SteelBlue;
         public Color ColorTo = Color.FromArgb(0, Color.Red);
            
-        public void UpdateState()
+        public virtual void UpdateState()
         {
             int particleToCreate = ParticlePerTick;
 
             foreach (var particle in particles)
             {
-                particle.Life--;
                 if (particle.Life <= 0)
                 {
                     if (particleToCreate > 0)
@@ -50,15 +49,15 @@ namespace ZiminN_ISTb_21_2_particl
                 }
                 else
                 {
+                    particle.Life--;
+                    particle.X += particle.SpeedX;
+                    particle.Y += particle.SpeedY;
                     foreach (var point in impactPoints)
                     {
                         point.ImpactParticle(particle);
                     }
-                    
                     particle.SpeedX += GravitationX;
                     particle.SpeedY += GravitationY;
-                    particle.X += particle.SpeedX;
-                    particle.Y += particle.SpeedY;
                 }
             }
 
@@ -86,7 +85,7 @@ namespace ZiminN_ISTb_21_2_particl
             particle.Radius = 2 + Particle.random.Next(RadiusMin, RadiusMax);
         }
 
-        public void Render(Graphics g)
+        public virtual void Render(Graphics g)
         {
             foreach (var particle in particles)
             {

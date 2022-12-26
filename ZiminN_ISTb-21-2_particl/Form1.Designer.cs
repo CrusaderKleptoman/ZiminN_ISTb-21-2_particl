@@ -34,13 +34,21 @@
             this.trackBarDirection = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.labelDirection = new System.Windows.Forms.Label();
+            this.trackBarGraviton1 = new System.Windows.Forms.TrackBar();
+            this.labelGraviton1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.trackBarGraviton2 = new System.Windows.Forms.TrackBar();
+            this.labelGraviton2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDirection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(15, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(776, 426);
             this.pictureBox1.TabIndex = 0;
@@ -82,11 +90,74 @@
             this.labelDirection.TabIndex = 3;
             this.labelDirection.Text = "0°";
             // 
+            // trackBarGraviton1
+            // 
+            this.trackBarGraviton1.Location = new System.Drawing.Point(243, 473);
+            this.trackBarGraviton1.Maximum = 100;
+            this.trackBarGraviton1.Name = "trackBarGraviton1";
+            this.trackBarGraviton1.Size = new System.Drawing.Size(179, 45);
+            this.trackBarGraviton1.TabIndex = 4;
+            this.trackBarGraviton1.Value = 100;
+            this.trackBarGraviton1.Scroll += new System.EventHandler(this.trackBarGraviton_Scroll);
+            // 
+            // labelGraviton1
+            // 
+            this.labelGraviton1.AutoSize = true;
+            this.labelGraviton1.Location = new System.Drawing.Point(428, 473);
+            this.labelGraviton1.Name = "labelGraviton1";
+            this.labelGraviton1.Size = new System.Drawing.Size(25, 13);
+            this.labelGraviton1.TabIndex = 5;
+            this.labelGraviton1.Text = "100";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(240, 445);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(134, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Притяжение гравитона 1";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // trackBarGraviton2
+            // 
+            this.trackBarGraviton2.Location = new System.Drawing.Point(475, 473);
+            this.trackBarGraviton2.Maximum = 100;
+            this.trackBarGraviton2.Name = "trackBarGraviton2";
+            this.trackBarGraviton2.Size = new System.Drawing.Size(179, 45);
+            this.trackBarGraviton2.TabIndex = 7;
+            this.trackBarGraviton2.Value = 100;
+            this.trackBarGraviton2.Scroll += new System.EventHandler(this.trackBarGraviton2_Scroll);
+            // 
+            // labelGraviton2
+            // 
+            this.labelGraviton2.AutoSize = true;
+            this.labelGraviton2.Location = new System.Drawing.Point(660, 473);
+            this.labelGraviton2.Name = "labelGraviton2";
+            this.labelGraviton2.Size = new System.Drawing.Size(25, 13);
+            this.labelGraviton2.TabIndex = 8;
+            this.labelGraviton2.Text = "100";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(472, 445);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(134, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Притяжение гравитона 2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 530);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelGraviton2);
+            this.Controls.Add(this.trackBarGraviton2);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.labelGraviton1);
+            this.Controls.Add(this.trackBarGraviton1);
             this.Controls.Add(this.labelDirection);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.trackBarDirection);
@@ -95,6 +166,8 @@
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarDirection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -107,6 +180,12 @@
         private System.Windows.Forms.TrackBar trackBarDirection;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label labelDirection;
+        private System.Windows.Forms.TrackBar trackBarGraviton1;
+        private System.Windows.Forms.Label labelGraviton1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TrackBar trackBarGraviton2;
+        private System.Windows.Forms.Label labelGraviton2;
+        private System.Windows.Forms.Label label3;
     }
 }
 
