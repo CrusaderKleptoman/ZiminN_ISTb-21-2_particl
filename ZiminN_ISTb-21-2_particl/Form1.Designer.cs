@@ -78,8 +78,9 @@
             this.labelDirection.AutoSize = true;
             this.labelDirection.Location = new System.Drawing.Point(197, 473);
             this.labelDirection.Name = "labelDirection";
-            this.labelDirection.Size = new System.Drawing.Size(0, 13);
+            this.labelDirection.Size = new System.Drawing.Size(17, 13);
             this.labelDirection.TabIndex = 3;
+            this.labelDirection.Text = "0°";
             // 
             // Form1
             // 
