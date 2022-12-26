@@ -27,7 +27,7 @@ namespace ZiminN_ISTb_21_2_particl
                 Spreading = 10,
                 SpeedMin = 10,
                 SpeedMax = 10,
-                ColorFrom = Color.Gold,
+                ColorFrom = Color.SteelBlue,
                 ColorTo = Color.FromArgb(0, Color.Red),
                 ParticlePerTick = 10,
                 X = pictureBox1.Width / 2,
@@ -37,7 +37,6 @@ namespace ZiminN_ISTb_21_2_particl
 
             //emitter.impactPoints.Add(new AntiGravityPoint { X = pictureBox1.Width / 2, Y = pictureBox1.Height / 2 });
             //emitter.impactPoints.Add(new GravityPoint { X = (float)(pictureBox1.Width * 0.25), Y = pictureBox1.Height / 2 });
-
             //emitter.impactPoints.Add(new GravityPoint { X = (float)(pictureBox1.Width * 0.75), Y = pictureBox1.Height / 2 });
         }
 
@@ -63,6 +62,17 @@ namespace ZiminN_ISTb_21_2_particl
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             emitter.MousePositionX = e.X; emitter.MousePositionY = e.Y;
+        }
+
+        private void trackBarDirection_Scroll(object sender, EventArgs e)
+        {
+            emitter.Direction = trackBarDirection.Value;
+            labelDirection.Text = $"{trackBarDirection.Value}°";
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
