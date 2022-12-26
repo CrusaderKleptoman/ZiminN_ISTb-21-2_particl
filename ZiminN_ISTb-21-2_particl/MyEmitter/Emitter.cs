@@ -11,7 +11,7 @@ namespace ZiminN_ISTb_21_2_particl
 {
     internal class Emitter
     {
-        List<Particle> particles = new List<Particle>();
+        public List<Particle> particles = new List<Particle>();
         public List<IImpactPoint> impactPoints = new List<IImpactPoint>();
         public int MousePositionX;
         public int MousePositionY;
@@ -32,7 +32,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         public Color ColorFrom = Color.SteelBlue;
         public Color ColorTo = Color.FromArgb(0, Color.Red);
-           
+
         public virtual void UpdateState()
         {
             int particleToCreate = ParticlePerTick;
@@ -46,6 +46,7 @@ namespace ZiminN_ISTb_21_2_particl
                         particleToCreate -= 1;
                         ResetParticle(particle);
                     }
+                    
                 }
                 else
                 {
@@ -68,6 +69,7 @@ namespace ZiminN_ISTb_21_2_particl
                 ResetParticle(particle);
                 particles.Add(particle);
             }
+            
         }
 
         public virtual void ResetParticle(Particle particle)

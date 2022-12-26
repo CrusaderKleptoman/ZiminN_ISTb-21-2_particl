@@ -47,7 +47,7 @@ namespace ZiminN_ISTb_21_2_particl
                 SpeedMax = 10,
                 ColorFrom = Color.SteelBlue,
                 ColorTo = Color.FromArgb(0, Color.Red),
-                ParticlePerTick = 30,
+                ParticlePerTick = 50,
                 DirectionSpeed = 5,
                 X = pictureBox1.Width / 2 + pictureBox1.Width / 4,
                 Y = pictureBox1.Height / 2,
@@ -68,12 +68,12 @@ namespace ZiminN_ISTb_21_2_particl
                 Y = pictureBox1.Height / 2
             };
 
-            circleEmitter.impactPoints.Add(point1);
-            circleEmitter.impactPoints.Add(point2);
+            foreach (var emitter in emitters)
+            {
+                emitter.impactPoints.Add(point1);
+                emitter.impactPoints.Add(point2);
+            }
 
-            //emitter.impactPoints.Add(new AntiGravityPoint { X = pictureBox1.Width / 2, Y = pictureBox1.Height / 2 });
-            //emitter.impactPoints.Add(new GravityPoint { X = (float)(pictureBox1.Width * 0.25), Y = pictureBox1.Height / 2 });
-            //emitter.impactPoints.Add(new GravityPoint { X = (float)(pictureBox1.Width * 0.75), Y = pictureBox1.Height / 2 });
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -95,12 +95,27 @@ namespace ZiminN_ISTb_21_2_particl
                     emitter.Render(g);
                 }
             }
-
+            labelParticleAmount.Text = $"Количество частиц: {particleAmount()}";
             pictureBox1.Invalidate();
 
         }
 
-
+        private int particleAmount()
+        {
+            int amount = 0;
+            foreach (var emitter in emitters)
+            {
+                foreach (var particle in emitter.particles)
+                {
+                    if (particle.Life > 0)
+                    {
+                        amount++;
+                    }
+                }
+                
+            }
+            return amount;
+        }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             foreach (var emitter in emitters)
@@ -138,6 +153,27 @@ namespace ZiminN_ISTb_21_2_particl
         {
             point2.Power = trackBarGraviton2.Value;
             labelGraviton2.Text = $"{trackBarGraviton2.Value}";
+        }
+
+        private void labelParticleAmount_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBarLife_Scroll(object sender, EventArgs e)
+        {
+            foreach (var emitter in emitters)
+            {
+                emitter.LifeMax = trackBarLife.Value;
+            }
+        }
+
+        private void trackBarTic_Scroll(object sender, EventArgs e)
+        {
+            foreach (var emitter in emitters)
+            {
+                emitter.ParticlePerTick = trackBarTic.Value;
+            }
         }
     }
 }
