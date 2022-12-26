@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ZiminN_ISTb_21_2_particl.Particle;
 
 namespace ZiminN_ISTb_21_2_particl
 {
@@ -18,14 +19,6 @@ namespace ZiminN_ISTb_21_2_particl
             InitializeComponent();
 
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-
-            for(int i = 0; i < 500; i++)
-            {
-                var particle = new Particle();
-                particle.X = pictureBox1.Image.Width / 2;
-                particle.Y = pictureBox1.Image.Height / 2;
-                particles.Add(particle);
-            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -39,7 +32,7 @@ namespace ZiminN_ISTb_21_2_particl
 
             using(var g = Graphics.FromImage(pictureBox1.Image))
             {
-                g.Clear(Color.White);
+                g.Clear(Color.Black);
                 Render(g);
             }
             pictureBox1.Invalidate();
@@ -54,18 +47,36 @@ namespace ZiminN_ISTb_21_2_particl
                 if (particle.Life <= 0)
                 {
                     particle.Life = 20 + Particle.random.Next(100);
-                    particle.X = pictureBox1.Image.Width / 2;
-                    particle.Y = pictureBox1.Image.Height / 2;
-                    particle.Direction = Particle.random.Next(360);
-                    particle.Speed = 1 + Particle.random.Next(10);
+                    particle.X = MousePositionX;
+                    particle.Y = MousePositionY;
+                    var direction = (double)Particle.random.Next(360);
+                    var speed = 1 + Particle.random.Next(10);
+
+                    particle.SpeedX = (float)(Math.Cos(direction / 180 * Math.PI) * speed);
+                    particle.SpeedY = -(float)(Math.Sin(direction / 180 * Math.PI) * speed);
+
                     particle.Radius = 2 + Particle.random.Next(10);
                 }
                 else
                 {
-                    var directionInRadius = particle.Direction / 180 * Math.PI;
-                    particle.X += (float)(particle.Speed * Math.Cos(directionInRadius));
-                    particle.Y -= (float)(particle.Speed * Math.Sin(directionInRadius));
+                    particle.X += particle.SpeedX;
+                    particle.Y -= particle.SpeedY;
                 }
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                if (particles.Count < 500)
+                {
+                    var particle = new ParticleColorful();
+                    particle.FromColor = Color.SteelBlue;
+                    particle.ToColor = Color.FromArgb(0, Color.PaleVioletRed);
+                    particle.X = MousePositionX;
+                    particle.Y = MousePositionY;
+                    particles.Add(particle);
+
+                }
+                else { break; }
             }
         }
 
@@ -75,6 +86,14 @@ namespace ZiminN_ISTb_21_2_particl
             {
                 particle.Draw(g);
             }
+        }
+
+        private int MousePositionX = 0;
+        private int MousePositionY = 0;
+
+        private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            MousePositionX = e.X; MousePositionY = e.Y;
         }
     }
 }
