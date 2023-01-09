@@ -18,22 +18,22 @@ namespace ZiminN_ISTb_21_2_particl
         public float GravitationX = 0;
         public float GravitationY = 1;
         public int ParticlesCount = 500;
-        public int X;
-        public int Y;
-        public int Direction = 0;
-        public int Spreading = 360;
-        public int SpeedMin = 1;
-        public int SpeedMax = 10;
-        public int RadiusMin = 2;
-        public int RadiusMax = 10;
-        public int LifeMin = 20;
-        public int LifeMax = 100;
-        public int ParticlePerTick = 5;
+        public int X; // координата X центра эмиттера
+        public int Y; // координата Y центра эмиттера
+        public int Direction = 0; // вектор направления в градусах куда эмиттер выпускает частицы
+        public int Spreading = 360; // разброс частиц относительно Direction
+        public int SpeedMin = 1; // начальная минимальная скорость движения частицы
+        public int SpeedMax = 10; // начальная максимальная скорость движения частицы
+        public int RadiusMin = 2; // минимальный радиус частицы
+        public int RadiusMax = 10; // максимальный радиус частицы
+        public int LifeMin = 20; // минимальное время жизни частицы
+        public int LifeMax = 100; // максимальное время жизни частицы
+        public int ParticlePerTick = 5; //создаваемые частицы за один тик таймера
+        
+        public Color ColorFrom = Color.SteelBlue; // начальный цвет частицы
+        public Color ColorTo = Color.FromArgb(0, Color.Red); // конечный цвет частиц
 
-        public Color ColorFrom = Color.SteelBlue;
-        public Color ColorTo = Color.FromArgb(0, Color.Red);
-
-        public virtual void UpdateState()
+        public virtual void UpdateState() // метод обновления частиц эмиттера
         {
             int particleToCreate = ParticlePerTick;
 
@@ -74,7 +74,7 @@ namespace ZiminN_ISTb_21_2_particl
             
         }
 
-        public virtual void ResetParticle(Particle particle)
+        public virtual void ResetParticle(Particle particle) // метод обновления одной частицы
         {
             particle.FromColor = ColorFrom;
             particle.ToColor = ColorTo;
@@ -92,7 +92,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        public virtual void Render(Graphics g)
+        public virtual void Render(Graphics g) // метод рисовки графики частиц
         {
             foreach (var particle in particles)
             {
@@ -106,7 +106,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        public virtual Particle CreateParticle()
+        public virtual Particle CreateParticle() // метод создания частиц
         {
             var particle = new ParticleColorful();
             particle.FromColor = ColorFrom;

@@ -20,7 +20,7 @@ namespace ZiminN_ISTb_21_2_particl
         public static Random random = new Random();
 
 
-        public Particle()
+        public Particle() // конструктор
         {
             var direction = (double)random.Next(360);
             var speed = 1 + random.Next(10);
@@ -32,7 +32,7 @@ namespace ZiminN_ISTb_21_2_particl
             Life = 20 + random.Next(100);
         }
 
-        public virtual void Draw(Graphics g)
+        public virtual void Draw(Graphics g) // метод рисовки графики частицы
         {
             float koef = Math.Min(1f, Life / 100);
             int alpha = (int)(koef * 255);
@@ -46,7 +46,7 @@ namespace ZiminN_ISTb_21_2_particl
         public class ParticleColorful : Particle
         {
 
-            public static Color MixColor(Color color1, Color color2, float koef)
+            public static Color MixColor(Color color1, Color color2, float koef) // метод смешивания цветов
             {
                 return Color.FromArgb(
                     (int)(color2.A * koef + color1.A * (1 - koef)),
@@ -56,7 +56,7 @@ namespace ZiminN_ISTb_21_2_particl
                     );
             }
 
-            public override void Draw(Graphics g)
+            public override void Draw(Graphics g) // метод рисовки цветной частицы
             {
                 float koef = Math.Min(1f, Life / 100);
                 koef = Math.Max(0, koef);

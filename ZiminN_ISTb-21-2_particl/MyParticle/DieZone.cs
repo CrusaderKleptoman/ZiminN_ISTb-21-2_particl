@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ZiminN_ISTb_21_2_particl.MyParticle
 {
-    internal class DieZone : IImpactPoint
+    internal class DieZone : IImpactPoint //класс зоны при попадании в которую частицы умирают и увеличивается счётчик зоны
     {
         public Color Color = Color.DarkBlue;
         public int amount = 0;
-        public override void ImpactParticle(Particle particle)
+        public override void ImpactParticle(Particle particle) //метод проверяющий пересечение с частицами и то, перекрашены ли они
         {
             float gX = X - particle.X;
             float gY = Y - particle.Y;

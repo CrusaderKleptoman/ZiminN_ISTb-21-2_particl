@@ -13,7 +13,7 @@ namespace ZiminN_ISTb_21_2_particl.MyEmitter
         public bool MovingRight;
         public int MovingAmount;
         public int DirectionSpeed;
-        public override void ResetParticle(Particle particle)
+        public override void ResetParticle(Particle particle) // метод обновления одной частицы
         {
             particle.Life = 20 + Particle.random.Next(LifeMin, LifeMax);
             var direction = Direction + (double)Particle.random.Next(Spreading) - Spreading / 2;
@@ -28,7 +28,7 @@ namespace ZiminN_ISTb_21_2_particl.MyEmitter
             particle.Radius = Particle.random.Next(RadiusMin, RadiusMax);
 
         }
-        public override void UpdateState()
+        public override void UpdateState()// метод обновления частиц эмиттера и движения эмиттера по оси X
         {
             base.UpdateState();
             if(MovingRight)

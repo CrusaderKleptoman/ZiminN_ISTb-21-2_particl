@@ -13,7 +13,7 @@ using static ZiminN_ISTb_21_2_particl.Particle;
 
 namespace ZiminN_ISTb_21_2_particl
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form 
     {
         int miliseconds = 120000;
         List<Emitter> emitters = new List<Emitter>();
@@ -23,7 +23,7 @@ namespace ZiminN_ISTb_21_2_particl
         
         CircleEmitter circleEmitter;
 
-        public Form1()
+        public Form1() // конструктор
         {
             InitializeComponent();
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
@@ -75,7 +75,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void timer1_Tick(object sender, EventArgs e) // метод обновления игры, происходящий каждый тик тактового генератора
         {
             using (var g = Graphics.FromImage(pictureBox1.Image))
             {
@@ -102,28 +102,9 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        private int particleAmount()
-        {
-            int amount = 0;
-            foreach (var emitter in emitters)
-            {
-                foreach (var particle in emitter.particles)
-                {
-                    if (particle.Life > 0)
-                    {
-                        amount++;
-                    }
-                }
-                
-            }
-            return amount;
-        }
         private void pictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
-            foreach (var emitter in emitters)
-            {
-                emitter.MousePositionX = e.X; emitter.MousePositionY = e.Y;
-            }
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -162,17 +143,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
         {
-            dieZone = new DieZone
-            {
-                Color = Color.Red,
-                Radius = 50,
-                X = e.X,
-                Y = e.Y
-            };
-            foreach (var emitter in emitters)
-            {
-                emitter.impactPoints.Add(dieZone);
-            }
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)

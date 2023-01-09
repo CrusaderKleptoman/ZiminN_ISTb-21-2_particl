@@ -8,9 +8,9 @@ using static ZiminN_ISTb_21_2_particl.Particle;
 
 namespace ZiminN_ISTb_21_2_particl.MyParticle
 {
-    internal class RepaintZone : IImpactPoint
+    internal class RepaintZone : IImpactPoint //класс зоны, перекрашивающей частицы
     {
-        public override void ImpactParticle(Particle particle)
+        public override void ImpactParticle(Particle particle) // метод проверяющий пересечение с частицами и перекрашивающий их
         {
             float gX = X - particle.X;
             float gY = Y - particle.Y;
