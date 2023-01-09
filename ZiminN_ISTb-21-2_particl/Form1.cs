@@ -91,7 +91,6 @@ namespace ZiminN_ISTb_21_2_particl
             }
             miliseconds -= 40;
             labelTimer.Text = $"Таймер {miliseconds / 1000 / 60}:{miliseconds / 1000 % 60}";
-            labelParticleAmount.Text = $"Количество частиц: {particleAmount()}";
             if (miliseconds <= 0)
             {
                 timer1.Stop();

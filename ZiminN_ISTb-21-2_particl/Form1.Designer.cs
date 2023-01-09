@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.labelParticleAmount = new System.Windows.Forms.Label();
             this.trackBarLife = new System.Windows.Forms.TrackBar();
             this.trackBarTic = new System.Windows.Forms.TrackBar();
             this.trackBarCircleEmitterDirection = new System.Windows.Forms.TrackBar();
@@ -67,16 +66,6 @@
             this.timer1.Enabled = true;
             this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // labelParticleAmount
-            // 
-            this.labelParticleAmount.AutoSize = true;
-            this.labelParticleAmount.Location = new System.Drawing.Point(717, 445);
-            this.labelParticleAmount.Name = "labelParticleAmount";
-            this.labelParticleAmount.Size = new System.Drawing.Size(115, 13);
-            this.labelParticleAmount.TabIndex = 10;
-            this.labelParticleAmount.Text = "Количество частиц: 0";
-            this.labelParticleAmount.Click += new System.EventHandler(this.labelParticleAmount_Click);
             // 
             // trackBarLife
             // 
@@ -182,7 +171,7 @@
             // labelTimer
             // 
             this.labelTimer.AutoSize = true;
-            this.labelTimer.Location = new System.Drawing.Point(717, 473);
+            this.labelTimer.Location = new System.Drawing.Point(717, 445);
             this.labelTimer.Name = "labelTimer";
             this.labelTimer.Size = new System.Drawing.Size(64, 13);
             this.labelTimer.TabIndex = 21;
@@ -204,10 +193,9 @@
             this.Controls.Add(this.trackBarCircleEmitterDirection);
             this.Controls.Add(this.trackBarTic);
             this.Controls.Add(this.trackBarLife);
-            this.Controls.Add(this.labelParticleAmount);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Сбор очков";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarLife)).EndInit();
@@ -224,7 +212,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label labelParticleAmount;
         private System.Windows.Forms.TrackBar trackBarLife;
         private System.Windows.Forms.TrackBar trackBarTic;
         private System.Windows.Forms.TrackBar trackBarCircleEmitterDirection;
