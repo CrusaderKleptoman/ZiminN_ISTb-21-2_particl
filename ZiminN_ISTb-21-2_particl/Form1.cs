@@ -123,7 +123,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        private void trackBarLife_Scroll(object sender, EventArgs e)
+        private void trackBarLife_Scroll(object sender, EventArgs e) //метод задающий максимальную жизнь частиц через trackBar
         {
             foreach (var emitter in emitters)
             {
@@ -132,7 +132,7 @@ namespace ZiminN_ISTb_21_2_particl
             }
         }
 
-        private void trackBarTic_Scroll(object sender, EventArgs e)
+        private void trackBarTic_Scroll(object sender, EventArgs e) //метод задающий количество создаваемых частиц за один тик через trackBar
         {
             foreach (var emitter in emitters)
             {
@@ -151,7 +151,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        private void trackBarCircleEmitterDirection_Scroll(object sender, EventArgs e)
+        private void trackBarCircleEmitterDirection_Scroll(object sender, EventArgs e) //метод задающий направление создания частиц кругового эмиттера через trackBar
         {
             foreach (var emitter in emitters)
             {
@@ -171,7 +171,7 @@ namespace ZiminN_ISTb_21_2_particl
             }
         }
 
-        private void trackBarDieZonePosition_Scroll(object sender, EventArgs e)
+        private void trackBarDieZonePosition_Scroll(object sender, EventArgs e) //метод перемещающий DieZone по оси X через trackBar
         {
             foreach (var emitter in emitters)
             {
@@ -190,7 +190,7 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        private void trackBarRepaintZonePosition_Scroll(object sender, EventArgs e)
+        private void trackBarRepaintZonePosition_Scroll(object sender, EventArgs e) //метод перемещающий RepaintZone по оси X через trackBar
         {
             foreach (var emitter in emitters)
             {
