@@ -15,32 +15,20 @@ namespace ZiminN_ISTb_21_2_particl
 {
     public partial class Form1 : Form
     {
+        int miliseconds = 120000;
         List<Emitter> emitters = new List<Emitter>();
         List<RepaintZone> repaintZones = new List<RepaintZone>();
         RepaintZone repaintZone;
         DieZone dieZone;
-        Emitter emitter;
+        
         CircleEmitter circleEmitter;
-        GravityPoint point1;
-        GravityPoint point2;
 
         public Form1()
         {
             InitializeComponent();
             pictureBox1.Image = new Bitmap(pictureBox1.Width, pictureBox1.Height);
 
-            this.emitter = new Emitter
-            {
-                Direction = 0,
-                Spreading = 10,
-                SpeedMin = 2,
-                SpeedMax = 10,
-                ColorFrom = Color.SteelBlue,
-                ColorTo = Color.FromArgb(0, Color.Red),
-                ParticlePerTick = 10,
-                X = pictureBox1.Width / 4,
-                Y = pictureBox1.Height / 2,
-            };
+            
 
             this.circleEmitter = new CircleEmitter
             {
@@ -52,19 +40,18 @@ namespace ZiminN_ISTb_21_2_particl
                 ColorTo = Color.FromArgb(0, Color.Red),
                 ParticlePerTick = 50,
                 DirectionSpeed = 5,
-                X = pictureBox1.Width / 2 + pictureBox1.Width / 4,
-                Y = pictureBox1.Height / 2,
+                X = pictureBox1.Width / 2,
+                Y = pictureBox1.Height / 2 - pictureBox1.Height / 3,
 
             };
-            emitters.Add(this.emitter);
             emitters.Add(this.circleEmitter);
 
             this.repaintZone = new RepaintZone
             {
                 color = Color.Gold,
                 Radius = 100,
-                X = pictureBox1.Width / 2 + pictureBox1.Width / 4 + 50,
-                Y = pictureBox1.Height / 2 + pictureBox1.Height / 4
+                X = pictureBox1.Width / 2,
+                Y = pictureBox1.Height / 2
             };
 
             this.dieZone = new DieZone
@@ -75,22 +62,8 @@ namespace ZiminN_ISTb_21_2_particl
                 Y = pictureBox1.Height / 2 + pictureBox1.Height / 4
             };
 
-            point1 = new GravityPoint
-            {
-                X = pictureBox1.Width / 2 + 100,
-                Y = pictureBox1.Height / 2
-            };
-
-            point2 = new GravityPoint
-            {
-                X = pictureBox1.Width / 2 - 100,
-                Y = pictureBox1.Height / 2
-            };
-
             foreach (var emitter in emitters)
             {
-                emitter.impactPoints.Add(point1);
-                emitter.impactPoints.Add(point2);
                 emitter.impactPoints.Add(repaintZone);
                 emitter.impactPoints.Add(dieZone);
             }
@@ -116,8 +89,16 @@ namespace ZiminN_ISTb_21_2_particl
                     emitter.Render(g);
                 }
             }
-            
+            miliseconds -= 40;
+            labelTimer.Text = $"Таймер {miliseconds / 1000 / 60}:{miliseconds / 1000 % 60}";
             labelParticleAmount.Text = $"Количество частиц: {particleAmount()}";
+            if (miliseconds <= 0)
+            {
+                timer1.Stop();
+                MessageBox.Show(
+                    $"Собранные очки = {dieZone.amount}",
+                    "Игра закончена");
+            }
             pictureBox1.Invalidate();
 
         }
@@ -144,15 +125,6 @@ namespace ZiminN_ISTb_21_2_particl
             {
                 emitter.MousePositionX = e.X; emitter.MousePositionY = e.Y;
             }
-
-            point1.X = e.X;
-            point1.Y = e.Y;
-        }
-
-        private void trackBarDirection_Scroll(object sender, EventArgs e)
-        {
-            emitter.Direction = trackBarDirection.Value;
-            labelDirection.Text = $"{trackBarDirection.Value}°";
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -160,21 +132,10 @@ namespace ZiminN_ISTb_21_2_particl
 
         }
 
-        private void trackBarGraviton_Scroll(object sender, EventArgs e)
-        {
-            point1.Power = trackBarGraviton1.Value;
-            labelGraviton1.Text = $"{trackBarGraviton1.Value}";
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void trackBarGraviton2_Scroll(object sender, EventArgs e)
-        {
-            point2.Power = trackBarGraviton2.Value;
-            labelGraviton2.Text = $"{trackBarGraviton2.Value}";
         }
 
         private void labelParticleAmount_Click(object sender, EventArgs e)
@@ -187,6 +148,7 @@ namespace ZiminN_ISTb_21_2_particl
             foreach (var emitter in emitters)
             {
                 emitter.LifeMax = trackBarLife.Value;
+                labelParticleMaxLife.Text = $"Максимальная жизнь частиц: {emitter.LifeMax}";
             }
         }
 
@@ -195,7 +157,8 @@ namespace ZiminN_ISTb_21_2_particl
             foreach (var emitter in emitters)
             {
                 emitter.ParticlePerTick = trackBarTic.Value;
-            }
+                labelParticlePerTic.Text = $"Кол-во создаваемых частиц за тик: {emitter.ParticlePerTick}";
+            }  
         }
 
         private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
@@ -211,6 +174,59 @@ namespace ZiminN_ISTb_21_2_particl
             {
                 emitter.impactPoints.Add(dieZone);
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBarCircleEmitterDirection_Scroll(object sender, EventArgs e)
+        {
+            foreach (var emitter in emitters)
+            {
+                if(emitter is CircleEmitter)
+                {
+                    if (trackBarCircleEmitterDirection.Value == 0)
+                    { 
+                        (emitter as CircleEmitter).DirectionSpeed = ((emitter as CircleEmitter).DirectionSpeed) * (-1);
+                        labelCircleEmitterDirection.Text = "Направление кругового эмиттера: против часовой";
+                    }
+                    else
+                    { 
+                        (emitter as CircleEmitter).DirectionSpeed = Math.Abs(((emitter as CircleEmitter).DirectionSpeed));
+                        labelCircleEmitterDirection.Text = "Направление кругового эмиттера: по часовой";
+                    }
+                }
+            }
+        }
+
+        private void trackBarDieZonePosition_Scroll(object sender, EventArgs e)
+        {
+            foreach (var emitter in emitters)
+            {
+                dieZone.X = pictureBox1.Width / 100 * trackBarDieZonePosition.Value;               
+            }
+            labelDieZonePosition.Text = $"Положение DieZone: {dieZone.X}";
+        }
+
+        private void labelDieZonePosition_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelParticlePerTic_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void trackBarRepaintZonePosition_Scroll(object sender, EventArgs e)
+        {
+            foreach (var emitter in emitters)
+            {
+                repaintZone.X = pictureBox1.Width / 100 * trackBarRepaintZonePosition.Value;
+            }
+            labelRepaintZonePosition.Text = $"Положение RepaintZone: {repaintZone.X}";
         }
     }
 }

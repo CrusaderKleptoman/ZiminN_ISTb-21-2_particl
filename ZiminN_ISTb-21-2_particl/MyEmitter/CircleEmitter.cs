@@ -10,6 +10,8 @@ namespace ZiminN_ISTb_21_2_particl.MyEmitter
     internal class CircleEmitter : Emitter
     {
         public int Radius = 100;
+        public bool MovingRight;
+        public int MovingAmount;
         public int DirectionSpeed;
         public override void ResetParticle(Particle particle)
         {
@@ -29,6 +31,24 @@ namespace ZiminN_ISTb_21_2_particl.MyEmitter
         public override void UpdateState()
         {
             base.UpdateState();
+            if(MovingRight)
+            {
+                X += 5;
+                MovingAmount += 5;
+            }
+            else
+            {
+                X -= 5;
+                MovingAmount -= 5;
+            }
+            if (MovingAmount == 300)
+            {
+                MovingRight = false;
+            }
+            if (MovingAmount == -300)
+            {
+                MovingRight = true;
+            }
             Direction += DirectionSpeed;
         }
         public override void Render(Graphics g)

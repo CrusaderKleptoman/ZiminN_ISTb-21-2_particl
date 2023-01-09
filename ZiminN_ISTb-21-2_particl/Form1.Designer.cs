@@ -31,31 +31,31 @@
             this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.trackBarDirection = new System.Windows.Forms.TrackBar();
-            this.label1 = new System.Windows.Forms.Label();
-            this.labelDirection = new System.Windows.Forms.Label();
-            this.trackBarGraviton1 = new System.Windows.Forms.TrackBar();
-            this.labelGraviton1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.trackBarGraviton2 = new System.Windows.Forms.TrackBar();
-            this.labelGraviton2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.labelParticleAmount = new System.Windows.Forms.Label();
             this.trackBarLife = new System.Windows.Forms.TrackBar();
             this.trackBarTic = new System.Windows.Forms.TrackBar();
+            this.trackBarCircleEmitterDirection = new System.Windows.Forms.TrackBar();
+            this.trackBarDieZonePosition = new System.Windows.Forms.TrackBar();
+            this.labelDieZonePosition = new System.Windows.Forms.Label();
+            this.labelCircleEmitterDirection = new System.Windows.Forms.Label();
+            this.labelParticlePerTic = new System.Windows.Forms.Label();
+            this.labelParticleMaxLife = new System.Windows.Forms.Label();
+            this.labelRepaintZonePosition = new System.Windows.Forms.Label();
+            this.trackBarRepaintZonePosition = new System.Windows.Forms.TrackBar();
+            this.labelTimer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarDirection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarLife)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarCircleEmitterDirection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDieZonePosition)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRepaintZonePosition)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(15, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(776, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(948, 426);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -68,95 +68,10 @@
             this.timer1.Interval = 40;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // trackBarDirection
-            // 
-            this.trackBarDirection.Location = new System.Drawing.Point(12, 473);
-            this.trackBarDirection.Maximum = 359;
-            this.trackBarDirection.Name = "trackBarDirection";
-            this.trackBarDirection.Size = new System.Drawing.Size(75, 45);
-            this.trackBarDirection.TabIndex = 1;
-            this.trackBarDirection.Scroll += new System.EventHandler(this.trackBarDirection_Scroll);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 445);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Направление";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // labelDirection
-            // 
-            this.labelDirection.AutoSize = true;
-            this.labelDirection.Location = new System.Drawing.Point(93, 473);
-            this.labelDirection.Name = "labelDirection";
-            this.labelDirection.Size = new System.Drawing.Size(17, 13);
-            this.labelDirection.TabIndex = 3;
-            this.labelDirection.Text = "0°";
-            // 
-            // trackBarGraviton1
-            // 
-            this.trackBarGraviton1.Location = new System.Drawing.Point(119, 473);
-            this.trackBarGraviton1.Maximum = 100;
-            this.trackBarGraviton1.Name = "trackBarGraviton1";
-            this.trackBarGraviton1.Size = new System.Drawing.Size(131, 45);
-            this.trackBarGraviton1.TabIndex = 4;
-            this.trackBarGraviton1.Value = 100;
-            this.trackBarGraviton1.Scroll += new System.EventHandler(this.trackBarGraviton_Scroll);
-            // 
-            // labelGraviton1
-            // 
-            this.labelGraviton1.AutoSize = true;
-            this.labelGraviton1.Location = new System.Drawing.Point(256, 473);
-            this.labelGraviton1.Name = "labelGraviton1";
-            this.labelGraviton1.Size = new System.Drawing.Size(25, 13);
-            this.labelGraviton1.TabIndex = 5;
-            this.labelGraviton1.Text = "100";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(116, 445);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 13);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Притяжение гравитона 1";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // trackBarGraviton2
-            // 
-            this.trackBarGraviton2.Location = new System.Drawing.Point(294, 473);
-            this.trackBarGraviton2.Maximum = 100;
-            this.trackBarGraviton2.Name = "trackBarGraviton2";
-            this.trackBarGraviton2.Size = new System.Drawing.Size(131, 45);
-            this.trackBarGraviton2.TabIndex = 7;
-            this.trackBarGraviton2.Value = 100;
-            this.trackBarGraviton2.Scroll += new System.EventHandler(this.trackBarGraviton2_Scroll);
-            // 
-            // labelGraviton2
-            // 
-            this.labelGraviton2.AutoSize = true;
-            this.labelGraviton2.Location = new System.Drawing.Point(431, 473);
-            this.labelGraviton2.Name = "labelGraviton2";
-            this.labelGraviton2.Size = new System.Drawing.Size(25, 13);
-            this.labelGraviton2.TabIndex = 8;
-            this.labelGraviton2.Text = "100";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(291, 445);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(134, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Притяжение гравитона 2";
-            // 
             // labelParticleAmount
             // 
             this.labelParticleAmount.AutoSize = true;
-            this.labelParticleAmount.Location = new System.Drawing.Point(475, 445);
+            this.labelParticleAmount.Location = new System.Drawing.Point(717, 445);
             this.labelParticleAmount.Name = "labelParticleAmount";
             this.labelParticleAmount.Size = new System.Drawing.Size(115, 13);
             this.labelParticleAmount.TabIndex = 10;
@@ -165,52 +80,141 @@
             // 
             // trackBarLife
             // 
-            this.trackBarLife.Location = new System.Drawing.Point(619, 473);
+            this.trackBarLife.Location = new System.Drawing.Point(534, 473);
             this.trackBarLife.Maximum = 100;
             this.trackBarLife.Minimum = 20;
             this.trackBarLife.Name = "trackBarLife";
             this.trackBarLife.Size = new System.Drawing.Size(104, 45);
             this.trackBarLife.TabIndex = 11;
-            this.trackBarLife.Value = 20;
+            this.trackBarLife.Value = 100;
             this.trackBarLife.Scroll += new System.EventHandler(this.trackBarLife_Scroll);
             // 
             // trackBarTic
             // 
-            this.trackBarTic.Location = new System.Drawing.Point(478, 473);
+            this.trackBarTic.Location = new System.Drawing.Point(312, 473);
             this.trackBarTic.Maximum = 100;
             this.trackBarTic.Minimum = 1;
             this.trackBarTic.Name = "trackBarTic";
             this.trackBarTic.Size = new System.Drawing.Size(104, 45);
             this.trackBarTic.TabIndex = 12;
-            this.trackBarTic.Value = 1;
+            this.trackBarTic.Value = 50;
             this.trackBarTic.Scroll += new System.EventHandler(this.trackBarTic_Scroll);
+            // 
+            // trackBarCircleEmitterDirection
+            // 
+            this.trackBarCircleEmitterDirection.Location = new System.Drawing.Point(19, 549);
+            this.trackBarCircleEmitterDirection.Maximum = 1;
+            this.trackBarCircleEmitterDirection.Name = "trackBarCircleEmitterDirection";
+            this.trackBarCircleEmitterDirection.Size = new System.Drawing.Size(104, 45);
+            this.trackBarCircleEmitterDirection.TabIndex = 13;
+            this.trackBarCircleEmitterDirection.Value = 1;
+            this.trackBarCircleEmitterDirection.Scroll += new System.EventHandler(this.trackBarCircleEmitterDirection_Scroll);
+            // 
+            // trackBarDieZonePosition
+            // 
+            this.trackBarDieZonePosition.Location = new System.Drawing.Point(19, 473);
+            this.trackBarDieZonePosition.Maximum = 100;
+            this.trackBarDieZonePosition.Minimum = 10;
+            this.trackBarDieZonePosition.Name = "trackBarDieZonePosition";
+            this.trackBarDieZonePosition.Size = new System.Drawing.Size(104, 45);
+            this.trackBarDieZonePosition.TabIndex = 14;
+            this.trackBarDieZonePosition.Value = 55;
+            this.trackBarDieZonePosition.Scroll += new System.EventHandler(this.trackBarDieZonePosition_Scroll);
+            // 
+            // labelDieZonePosition
+            // 
+            this.labelDieZonePosition.AutoSize = true;
+            this.labelDieZonePosition.Location = new System.Drawing.Point(16, 445);
+            this.labelDieZonePosition.Name = "labelDieZonePosition";
+            this.labelDieZonePosition.Size = new System.Drawing.Size(133, 13);
+            this.labelDieZonePosition.TabIndex = 15;
+            this.labelDieZonePosition.Text = "Положение DieZone: 500";
+            this.labelDieZonePosition.Click += new System.EventHandler(this.labelDieZonePosition_Click);
+            // 
+            // labelCircleEmitterDirection
+            // 
+            this.labelCircleEmitterDirection.AutoSize = true;
+            this.labelCircleEmitterDirection.Location = new System.Drawing.Point(12, 521);
+            this.labelCircleEmitterDirection.Name = "labelCircleEmitterDirection";
+            this.labelCircleEmitterDirection.Size = new System.Drawing.Size(242, 13);
+            this.labelCircleEmitterDirection.TabIndex = 16;
+            this.labelCircleEmitterDirection.Text = "Направление кругового эмиттера: по часовой";
+            // 
+            // labelParticlePerTic
+            // 
+            this.labelParticlePerTic.AutoSize = true;
+            this.labelParticlePerTic.Location = new System.Drawing.Point(309, 445);
+            this.labelParticlePerTic.Name = "labelParticlePerTic";
+            this.labelParticlePerTic.Size = new System.Drawing.Size(203, 13);
+            this.labelParticlePerTic.TabIndex = 17;
+            this.labelParticlePerTic.Text = "Кол-во создаваемых частиц за тик: 50";
+            this.labelParticlePerTic.Click += new System.EventHandler(this.labelParticlePerTic_Click);
+            // 
+            // labelParticleMaxLife
+            // 
+            this.labelParticleMaxLife.AutoSize = true;
+            this.labelParticleMaxLife.Location = new System.Drawing.Point(531, 445);
+            this.labelParticleMaxLife.Name = "labelParticleMaxLife";
+            this.labelParticleMaxLife.Size = new System.Drawing.Size(180, 13);
+            this.labelParticleMaxLife.TabIndex = 18;
+            this.labelParticleMaxLife.Text = "Максимальная жизнь частиц: 100";
+            // 
+            // labelRepaintZonePosition
+            // 
+            this.labelRepaintZonePosition.AutoSize = true;
+            this.labelRepaintZonePosition.Location = new System.Drawing.Point(149, 445);
+            this.labelRepaintZonePosition.Name = "labelRepaintZonePosition";
+            this.labelRepaintZonePosition.Size = new System.Drawing.Size(154, 13);
+            this.labelRepaintZonePosition.TabIndex = 20;
+            this.labelRepaintZonePosition.Text = "Положение RepaintZone: 500";
+            // 
+            // trackBarRepaintZonePosition
+            // 
+            this.trackBarRepaintZonePosition.Location = new System.Drawing.Point(152, 473);
+            this.trackBarRepaintZonePosition.Maximum = 100;
+            this.trackBarRepaintZonePosition.Minimum = 10;
+            this.trackBarRepaintZonePosition.Name = "trackBarRepaintZonePosition";
+            this.trackBarRepaintZonePosition.Size = new System.Drawing.Size(104, 45);
+            this.trackBarRepaintZonePosition.TabIndex = 19;
+            this.trackBarRepaintZonePosition.Value = 55;
+            this.trackBarRepaintZonePosition.Scroll += new System.EventHandler(this.trackBarRepaintZonePosition_Scroll);
+            // 
+            // labelTimer
+            // 
+            this.labelTimer.AutoSize = true;
+            this.labelTimer.Location = new System.Drawing.Point(717, 473);
+            this.labelTimer.Name = "labelTimer";
+            this.labelTimer.Size = new System.Drawing.Size(64, 13);
+            this.labelTimer.TabIndex = 21;
+            this.labelTimer.Text = "Таймер 2:0";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 530);
+            this.ClientSize = new System.Drawing.Size(975, 601);
+            this.Controls.Add(this.labelTimer);
+            this.Controls.Add(this.labelRepaintZonePosition);
+            this.Controls.Add(this.trackBarRepaintZonePosition);
+            this.Controls.Add(this.labelParticleMaxLife);
+            this.Controls.Add(this.labelParticlePerTic);
+            this.Controls.Add(this.labelCircleEmitterDirection);
+            this.Controls.Add(this.labelDieZonePosition);
+            this.Controls.Add(this.trackBarDieZonePosition);
+            this.Controls.Add(this.trackBarCircleEmitterDirection);
             this.Controls.Add(this.trackBarTic);
             this.Controls.Add(this.trackBarLife);
             this.Controls.Add(this.labelParticleAmount);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.labelGraviton2);
-            this.Controls.Add(this.trackBarGraviton2);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.labelGraviton1);
-            this.Controls.Add(this.trackBarGraviton1);
-            this.Controls.Add(this.labelDirection);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.trackBarDirection);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarDirection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBarGraviton2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarLife)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBarTic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarCircleEmitterDirection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarDieZonePosition)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarRepaintZonePosition)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,18 +224,18 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TrackBar trackBarDirection;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelDirection;
-        private System.Windows.Forms.TrackBar trackBarGraviton1;
-        private System.Windows.Forms.Label labelGraviton1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TrackBar trackBarGraviton2;
-        private System.Windows.Forms.Label labelGraviton2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelParticleAmount;
         private System.Windows.Forms.TrackBar trackBarLife;
         private System.Windows.Forms.TrackBar trackBarTic;
+        private System.Windows.Forms.TrackBar trackBarCircleEmitterDirection;
+        private System.Windows.Forms.TrackBar trackBarDieZonePosition;
+        private System.Windows.Forms.Label labelDieZonePosition;
+        private System.Windows.Forms.Label labelCircleEmitterDirection;
+        private System.Windows.Forms.Label labelParticlePerTic;
+        private System.Windows.Forms.Label labelParticleMaxLife;
+        private System.Windows.Forms.Label labelRepaintZonePosition;
+        private System.Windows.Forms.TrackBar trackBarRepaintZonePosition;
+        private System.Windows.Forms.Label labelTimer;
     }
 }
 

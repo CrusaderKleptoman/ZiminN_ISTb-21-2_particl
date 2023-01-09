@@ -19,7 +19,16 @@ namespace ZiminN_ISTb_21_2_particl.MyParticle
             double r = Math.Sqrt(gX * gX + gY * gY);
             if (r < Radius / 2)
             {
-                amount++;
+                if (particle.FromColor == Color.Gold)
+                {
+                    amount += 5;
+                }
+                else
+                {
+                    amount++;
+                }
+                particle.FromColor = Color.White;
+                particle.ToColor = Color.White;
                 particle.Life = 0;
             }
         }
